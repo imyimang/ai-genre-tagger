@@ -1,0 +1,4 @@
+.env
+/__pycache__/
+/.vscode/
+music_classification_results.json

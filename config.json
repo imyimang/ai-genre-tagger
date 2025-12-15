@@ -1,0 +1,6 @@
+{
+  "model": "gemini-2.5-flash",
+  "mp3_directory": "mp3資料夾絕對路徑",
+  "batch_size": 20,
+  "genre_list_file": "genre_list.json"
+}
