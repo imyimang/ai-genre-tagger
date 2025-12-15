@@ -1,4 +1,4 @@
-# AIGenreTagger
+# ai-genre-tagger
 這是一個利用 Gemini AI 自動判定 MP3 歌曲曲風並修改檔案 Metadata 以實現分類的專案
 
 可搭配 [SpotiDownloader](https://spotidownloader.com/) 等工具，以實現在 Auxio 等離線播放器能識別出曲風的效果
