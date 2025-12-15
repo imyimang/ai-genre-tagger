@@ -1,13 +1,13 @@
 # ai-genre-tagger
-這是一個利用 Gemini AI 自動判定 MP3 歌曲曲風並修改檔案 Metadata 以實現分類的專案
+這是一個利用 Gemini AI 自動判定 MP3 歌曲曲風並修改檔案 ID3 TCON 標籤以實現分類的專案
 
 可搭配 [SpotiDownloader](https://spotidownloader.com/) 等工具，以實現在 Auxio 等離線播放器能識別出曲風的效果
 
 ## 主要功能
-- 透過 Gemini AI 根據專輯和歌名及歌手自動判定屬於 `genre_list.json` 的哪種曲風
-- 根據結果修改 MP3 檔案的 Metadata TCON 標籤
+- 透過 Gemini AI 根據歌手、專輯和歌名自動判定屬於 `genre_list.json` 的哪種曲風
+- 根據結果修改 MP3 檔案的 ID3 TCON 標籤
 - 自動處理所有子資料夾的 MP3 檔案
-- 自動跳過 Metadata 已存在 TCON 標籤的 MP3 檔案
+- 自動跳過已有 TCON 標籤的 MP3 檔案
 
 ## 環境部署
 安裝環境依賴：
