@@ -10,21 +10,27 @@ def get_mp3_files(directory):
     path = Path(directory)
     
     for file in path.glob("**/*.mp3"):
-        album_name = file.parent.name  # 上一層資料夾名稱（專輯名稱）
         song_name = file.stem  # 不含副檔名的檔名
         
-        # 讀取 MP3 metadata 取得歌手資訊
-        artist = "Unknown Artist"
+        # 讀取 MP3 metadata
+        artist = ""
+        album_name = ""
         has_genre = False
         existing_genre = None
         try:
             audio = MP3(str(file), ID3=ID3)
             if audio.tags:
-                # 嘗試取得歌手標籤 (TPE1)
+                # 取得歌手標籤 (TPE1)
                 if 'TPE1' in audio.tags:
                     artist = str(audio.tags['TPE1'])
                 elif '\xa9ART' in audio.tags:  # iTunes format
                     artist = str(audio.tags['\xa9ART'])
+                
+                # 取得專輯名稱 (TALB)
+                if 'TALB' in audio.tags:
+                    album_name = str(audio.tags['TALB'])
+                elif '\xa9alb' in audio.tags:  # iTunes format
+                    album_name = str(audio.tags['\xa9alb'])
                 
                 # 檢查是否已有曲風標籤 (TCON)
                 if 'TCON' in audio.tags:
